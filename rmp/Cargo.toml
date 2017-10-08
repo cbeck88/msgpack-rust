@@ -10,9 +10,20 @@ readme = "README.md"
 keywords = ["msgpack", "MessagePack"]
 categories = ["encoding"]
 
-[dependencies]
-byteorder = "1"
-num-traits = "0.1"
+[dependencies.num-traits]
+path = "../num-traits"
+
+[dependencies.nostd]
+path = "../nostd"
+
+[dependencies.byteorder]
+version = "1"
+default-features = false
 
 [dev-dependencies]
 quickcheck = "0.3"
+
+[features]
+default = []
+# this feature is used for tests `cargo test --features=std`
+std = ["nostd/std"]

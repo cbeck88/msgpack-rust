@@ -19,7 +19,8 @@ use std::error;
 use std::fmt::{self, Display, Formatter};
 use std::io::Write;
 
-use byteorder::{self, WriteBytesExt};
+use byteorder;
+use nostd::io_ext::WriteBytesExt;
 
 use Marker;
 

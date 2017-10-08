@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "nostd",
+    "num-traits",
     "rmp",
     "rmp-serde",
     "rmp-serialize",

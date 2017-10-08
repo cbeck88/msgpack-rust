@@ -26,7 +26,8 @@ use std::error;
 use std::fmt::{self, Display, Formatter};
 use std::io::Read;
 
-use byteorder::{self, ReadBytesExt};
+use byteorder;
+use nostd::io_ext::ReadBytesExt;
 
 use num_traits::cast::FromPrimitive;
 
