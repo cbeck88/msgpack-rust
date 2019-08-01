@@ -62,18 +62,17 @@
 
 #![warn(missing_debug_implementations, missing_docs)]
 
-#![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 
-#![feature(alloc)]
 extern crate alloc;
 
-#[cfg(not(feature = "std"))]
 extern crate nostd;
-#[cfg(not(feature = "std"))]
+// Evil... but we want to avoid code changes in rmp sources, and we need no_std
 mod std {
     pub use core::*;
     pub use nostd::*;
 }
+
 extern crate rmp;
 extern crate byteorder;
 #[macro_use]
@@ -85,7 +84,7 @@ use std::str::{self, Utf8Error};
 
 use alloc::vec::Vec;
 use alloc::string::String;
-use alloc::prelude::ToString;
+use alloc::string::ToString;
 
 use serde::{Deserialize, Serialize};
 use serde::de;

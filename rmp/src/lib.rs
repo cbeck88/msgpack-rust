@@ -148,14 +148,14 @@
 //!
 //! [read_int]: decode/fn.read_int.html
 
-#![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 
 extern crate byteorder;
 extern crate num_traits;
 
-#[cfg(not(feature = "std"))]
 extern crate nostd;
-#[cfg(not(feature = "std"))]
+
+// Evil... but we want to avoid code changes in rmp sources, and we need no_std
 mod std {
     pub use core::*;
     pub use nostd::*;
